@@ -12,11 +12,16 @@
     ".": {
       "import": "./dist/elektrocode-cookies-manager.es.js",
       "require": "./dist/elektrocode-cookies-manager.umd.js"
+    },
+    "./dist/index.css": {
+      "import": "./dist/index.css",
+      "require": "./dist/index.css"
     }
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run build:styles",
+    "build:styles": "postcss src/tailwind.css -o dist/index.css",
     "preview": "vite preview"
   },
   "peerDependencies": {
@@ -24,6 +29,10 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.3.2",
     "vite": "^4.3.2"
   }
 }
