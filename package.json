@@ -22,7 +22,8 @@
     "dev": "vite",
     "build": "vite build && npm run build:styles",
     "build:styles": "postcss src/tailwind.css -o dist/index.css",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "host": "vite --host"
   },
   "peerDependencies": {
     "vue": "^3.2.47"
