@@ -95,13 +95,16 @@
                 class="w-full h-full bg-transparent absolute cursor-default"
                 @click="closeMoreInfoPopup()"/>
     </div>
-
 </template>
 
 <script setup>
 import {ref} from "vue";
 
 const props = defineProps({
+    cookieName: {
+        type: String,
+        default: 'elektrocode_cookies_popup'
+    },
     image: {
         type: String,
     },
@@ -137,15 +140,19 @@ const props = defineProps({
 const showPopup = ref(false);
 const showMoreInfoPopup = ref(false);
 
-setTimeout(() => {
-    showPopup.value = true
-}, 600)
+const checkCookie = () => {
+    let match = document.cookie.match(new RegExp('(^| )' + props.cookieName + '=([^;]+)'));
+    if (!match) {
+        showPopup.value = true;
+    }
+}
+
+checkCookie()
+
 const acceptCookies = () => {
     showPopup.value = false
-
-    setTimeout(() => {
-        showPopup.value = true
-    }, 1000)
+    showMoreInfoPopup.value = false
+    document.cookie = `${props.cookieName}=accepted`
 }
 
 const openMoreInfoPopup = () => {
