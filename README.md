@@ -107,7 +107,7 @@ If button labels are not to your taste you can easily change that.
 "More Info" popup is designed to provide additional information
 and explanation of the cookies that are being used in the website.
 This information needs to be provided by you in the ```cookiesInfo``` prop.
-If no this is not provided, cookiesManager will not show the **More info** button.
+If not, cookiesManager will not show the **More info** button.
 
 ```cookiesInfo``` prop accepts **array of object**.
 Each object is separate section inside the "More info" popup and should have this build:
