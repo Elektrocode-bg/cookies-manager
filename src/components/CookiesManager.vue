@@ -1,41 +1,41 @@
 <template>
     <transition
-        enter-from-class="translate-y-full md:translate-y-0 md:-translate-x-full"
-        enter-active-class="transition-all duration-300 ease-out"
-        enter-to-class="translate-x-0"
-        leave-to-class="translate-y-full md:translate-y-0 md:-translate-x-full"
-        leave-active-class="transition-all duration-300 ease-out"
-        leave-from-class="translate-x-0">
+        enter-from-class="cm__translate-y-full md:cm__translate-y-0 md:-cm__translate-x-full"
+        enter-active-class="cm__transition-all cm__duration-300 cm__ease-out"
+        enter-to-class="cm__translate-x-0"
+        leave-to-class="cm__translate-y-full md:cm__translate-y-0 md:-cm__translate-x-full"
+        leave-active-class="cm__transition-all cm__duration-300 cm__ease-out"
+        leave-from-class="cm__translate-x-0">
         <div v-show="showPopup"
-             class="fixed bottom-0 left-0 md:p-10 max-w-[800px] z-50">
-            <div class=" md:rounded-lg grid-cols-1 sm:grid-cols-7 px-5 md:px-8 py-3 md:py-8 gap-5 md:gap-10 shadow-lg items-center backdrop-blur-xl"
-                 :class="[image && 'grid', dark ? 'bg-gray-600/70' : 'bg-gray-100/50' ]">
+             class="cm__fixed cm__bottom-0 cm__left-0 md:cm__p-10 cm__max-w-[800px] cm__z-50">
+            <div class="md:cm__rounded-lg cm__grid-cols-1 sm:cm__grid-cols-7 cm__px-5 md:cm__px-8 cm__py-3 md:cm__py-8 cm__gap-5 md:cm__gap-10 cm__shadow-lg cm__items-center cm__backdrop-blur-xl"
+                 :class="[image && 'cm__grid', dark ? 'cm__bg-gray-600/70' : 'cm__bg-gray-100/50' ]">
                 <div v-show="image"
-                     class="sm:col-span-2">
+                     class="sm:cm__col-span-2">
                     <img :src="image"
                          alt="Cookie image"
-                         class="w-1/3 sm:w-full mx-auto">
+                         class="cm__w-1/3 sm:cm__w-full cm__mx-auto">
                 </div>
-                <div class="text-center"
-                     :class="{ 'sm:col-span-5 sm:text-left': image}">
-                    <p class="text-xl md:text-2xl"
-                       :class="[ dark ? 'text-gray-100' : 'text-gray-900']">
+                <div class="cm__text-center"
+                     :class="{ 'sm:cm__col-span-5 sm:cm__text-left': image}">
+                    <p class="cm__text-xl md:cm__text-2xl"
+                       :class="[ dark ? 'cm__text-gray-100' : 'cm__text-gray-900']">
                         {{ title }}
                     </p>
                     <p v-show="description"
-                       class="text-sm md:text-base mt-2 md:mt-4"
-                       :class="[ dark ? 'text-gray-200' : 'text-gray-700']">
+                       class="cm__text-sm md:cm__text-base cm__mt-2 md:cm__mt-4"
+                       :class="[ dark ? 'cm__text-gray-200' : 'cm__text-gray-700']">
                         {{ description }}
                     </p>
-                    <div class="mt-3 md:mt-6 space-x-4 md:space-x-10">
-                        <button class="px-8 py-1 md:px-10 md:py-2 rounded-full text-white hover:cursor-pointer hover:shadow-lg text-sm md:text-base"
-                                :class="[dark ? 'bg-gray-500 hover:bg-gray-400' : 'bg-gray-600 hover:bg-gray-700']"
+                    <div class="cm__mt-3 md:cm__mt-6 cm__space-x-4 md:cm__space-x-10">
+                        <button class="cm__px-8 cm__py-1 md:cm__px-10 md:cm__py-2 cm__rounded-full cm__text-white hover:cm__cursor-pointer hover:cm__shadow-lg cm__text-sm md:cm__text-base"
+                                :class="[dark ? 'cm__bg-gray-500 hover:cm__bg-gray-400' : 'cm__bg-gray-600 hover:cm__bg-gray-700']"
                                 type="button"
                                 @click="acceptCookies()">{{ acceptCookieButtonLabel }}
                         </button>
                         <button v-show="cookiesInfo"
-                                class="px-8 py-1 md:px-10 md:py-2 hover:cursor-pointer text-sm md:text-base"
-                                :class="[dark ? 'text-gray-300 hover:text-gray-200' : 'text-gray-600 hover:text-gray-700']"
+                                class="cm__px-8 cm__py-1 md:cm__px-10 md:cm__py-2 hover:cm__cursor-pointer cm__text-sm md:cm__text-base"
+                                :class="[dark ? 'cm__text-gray-300 hover:cm__text-gray-200' : 'cm__text-gray-600 hover:cm__text-gray-700']"
                                 type="button"
                                 @click="openMoreInfoPopup()">{{ moreInfoButtonLabel }}
                         </button>
@@ -47,44 +47,47 @@
 
     <!--    Info popup/modal   -->
     <div v-show="showMoreInfoPopup && cookiesInfo"
-         class="fixed w-full h-full backdrop-blur-lg z-50 top-0 flex items-center justify-center"
-         :class="[ dark ? 'bg-gray-600/70' : 'bg-gray-100/50']">
-        <div class="max-w-[90%] md:max-w-[800px] max-h-[70%] rounded-lg overflow-y-auto z-10 relative "
-             :class="[ dark ? 'bg-gray-950' : 'bg-white']">
-            <div class="px-8 pt-6 md:px-14 md:pt-12 pb-3 space-y-8 md:space-y-12">
+         class="cm__fixed cm__w-full cm__h-full cm__backdrop-blur-lg cm__z-50 cm__top-0 cm__flex cm__items-center cm__justify-center"
+         :class="[ dark ? 'cm__bg-gray-600/70' : 'cm__bg-gray-100/50']">
+        <div class="cm__max-w-[90%] md:cm__max-w-[800px] cm__max-h-[70%] cm__rounded-lg cm__overflow-y-auto cm__z-10 cm__relative"
+             :class="[ dark ? 'cm__bg-gray-950' : 'cm__bg-white']">
+            <div class="cm__px-8 cm__pt-6 md:cm__px-14 md:cm__pt-12 cm__pb-3 cm__space-y-8 md:cm__space-y-12">
                 <div v-for="group in cookiesInfo">
                     <div>
-                        <p class="text-lg md:text-xl"
-                           :class="[ dark ? 'text-gray-300' : 'text-gray-800']">
+                        <p class="cm__text-lg md:cm__text-xl"
+                           :class="[ dark ? 'cm__text-gray-300' : 'cm__text-gray-800']">
                             {{ group.name }}
                         </p>
-                        <p class="text-xs md:text-base mt-2"
-                           :class="[ dark ? 'text-gray-400' : 'text-gray-500']">
+                        <p class="cm__text-xs md:cm__text-base cm__mt-2"
+                           :class="[ dark ? 'cm__text-gray-400' : 'cm__text-gray-500']">
                             {{ group.description }}
                         </p>
-                        <div class="divide-y mt-6"
-                             :class="[dark ? 'divide-gray-900' : 'divide-gray-100']">
+                        <div class="cm__divide-y cm__mt-6"
+                             :class="[dark ? 'cm__divide-gray-900' : 'cm__divide-gray-100']">
                             <div v-for="cookie in group.cookies"
-                                 class="pl-5 py-3 text-xs md:text-sm">
-                                <p :class="[ dark ? 'text-gray-300' : 'text-gray-700']">{{ cookie.key }}</p>
-                                <p :class="[ dark ? 'text-gray-500' : 'text-gray-400']">{{ cookie.description }}</p>
+                                 class="cm__pl-5 cm__py-3 cm__text-xs md:cm__text-sm">
+                                <p :class="[ dark ? 'cm__text-gray-300' : 'cm__text-gray-700']">{{ cookie.key }}</p>
+                                <p :class="[ dark ? 'cm__text-gray-500' : 'cm__text-gray-400']">{{
+                                        cookie.description
+                                    }}
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="sticky bottom-0 w-full text-center py-4 border-t space-x-4"
-                 :class="[dark ? 'bg-gray-950 border-gray-800' : 'bg-white border-gray-200']">
-                <button class="px-8 py-1 md:px-10 md:py-2 rounded-full text-white hover:cursor-pointer hover:shadow-lg text-sm md:text-base"
-                        :class="[dark ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-600 hover:bg-gray-700']"
+            <div class="cm__sticky cm__bottom-0 cm__w-full cm__text-center cm__py-4 cm__border-t cm__space-x-4"
+                 :class="[dark ? 'cm__bg-gray-950 cm__border-gray-800' : 'cm__bg-white cm__border-gray-200']">
+                <button class="cm__px-8 cm__py-1 md:cm__px-10 md:cm__py-2 cm__rounded-full cm__text-white hover:cm__cursor-pointer hover:cm__shadow-lg cm__text-sm md:cm__text-base"
+                        :class="[dark ? 'cm__bg-gray-700 hover:cm__bg-gray-600' : 'cm__bg-gray-600 hover:cm__bg-gray-700']"
                         type="button"
                         @click="acceptCookies()">
                     {{ acceptCookieButtonLabel }}
                 </button>
                 <button v-show="cookiesInfo"
-                        class="px-8 py-1 md:px-10 md:py-2 hover:cursor-pointer text-sm md:text-base"
-                        :class="[dark ? 'text-gray-300 hover:text-gray-200' : 'text-gray-600 hover:text-gray-700']"
+                        class="cm__px-8 cm__py-1 md:cm__px-10 md:cm__py-2 hover:cm__cursor-pointer cm__text-sm md:cm__text-base"
+                        :class="[dark ? 'cm__text-gray-300 hover:cm__text-gray-200' : 'cm__text-gray-600 hover:cm__text-gray-700']"
                         type="button"
                         @click="closeMoreInfoPopup()">
                     Close
@@ -92,7 +95,7 @@
             </div>
         </div>
         <button type="button"
-                class="w-full h-full bg-transparent absolute cursor-default"
+                class="cm__w-full cm__h-full cm__bg-transparent cm__absolute cm__cursor-default"
                 @click="closeMoreInfoPopup()"/>
     </div>
 </template>
