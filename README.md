@@ -29,12 +29,33 @@ You can open our <a href="https://elektrocode.com/">website</a> to check it out!
 
 ## Usage
 
+### First step
+
+(If your project does not use Tailwind **SKIP**)
+
+For Projects that use **Tailwind**. You should import the library to be scanned from
+Tailwind. ([Link](https://tailwindcss.com/docs/content-configuration#working-with-third-party-libraries) from TW
+documentation)
+
+```javascript
+module.exports = {
+    content: [
+        './components/**/*.{html,js}',
+        './pages/**/*.{html,js}',
+        './node_modules/elektrocode-cookies-manager/**/*.js'
+    ],
+    // ...
+}
+```
+
+### Second step
+
 ```vue
 //Layout.vue
 
 <script setup>
 import CookiesManager from 'elektrocode-cookies-manager';
-import 'elektrocode-cookies-manager/dist/index.css';
+import 'elektrocode-cookies-manager/dist/index.css'; //for Tailwind projects remove this line
 </script>
 
 <template>
